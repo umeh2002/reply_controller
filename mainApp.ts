@@ -6,13 +6,7 @@ import users from "./Router/replyRouter";
 
 export const mainApp = (app: Application) => {
   app.use(express.json());
-  app.use(
-    cors({
-      origin: "*",
-      // ,["http://localhost:5173"]
-      methods: ["GET", "POST", "DELETE", "UPDATE"],
-    })
-  );
+  app.use(cors());
   app.get("/", (req: Request, res: Response) => {
     try {
       return res.status(200).json({
